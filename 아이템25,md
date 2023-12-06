@@ -1,0 +1,47 @@
+# 4-25 // 톱 레벨 클래스는 한 파일에 하나만 담으라
+
+## 톱레벨 클래스
+    - 중첩 클래스가 아닌 것
+
+
+
+```
+// A.java
+class A {
+    String NAME = "a";
+}
+
+class B{
+    String NAME = "b";
+}
+```
+
+```
+// B.java
+class B {
+    String NAME = "B";
+}
+
+class A{
+    String NAME = "A";
+}
+```
+
+
+위와 같은 경우는 컴파일 에러가 남
+당연히 같은 클래스가 이미 정의되어 있기 때문
+
+## 해결책
+한개의 파일에 한개의 톱레벨 클래스만 두거나 정적 멤버 클래스 사용
+```
+public class AB {
+    private static class A {
+
+    }
+
+    private static class B {
+
+    }
+}
+```
+
